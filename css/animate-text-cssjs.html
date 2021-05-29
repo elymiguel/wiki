@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>JavaScript</title>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="/learn-javascript/js/teste.js"></script>
+    </head>
+    <style>
+        .title { 
+            transform: translateX(0);  
+            transition: all 2s linear;
+
+            opacity: 0.1;
+        }
+        .title.animate { 
+            transform: translateX(500px);  
+            opacity: 0.9;
+        }
+    </style>
+
+    <body>
+        <h1 class="title">YEEEES</h1>
+    </body>
+
+    <script>
+        setTimeout(function() { 
+            document.querySelector('.title').classList.add('animate'); 
+        },1)
+    </script>
+</html>
