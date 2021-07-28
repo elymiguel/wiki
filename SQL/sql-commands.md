@@ -126,6 +126,12 @@ where id=2;
 select * from autor;
 
 
+update livro
+set autor_id=2
+where id=1;
+
+select * from livro;
+
 
 ## JOIN
 
@@ -154,4 +160,15 @@ from livro l, autor a, editora e
 where a.id = l.autor_id 
 AND e.id = l.editora_id
 AND a.telefone like "75%";
+
+select l.titulo, e.nome, e.estado
+from livro l, editora e
+where e.id = l.editora_id 
+and e.estado="CA";
+
+select  l.titulo, a.nome, es.nome, ed.nome
+from livro l, autor a, editora ed, estilo es
+where a.id = l.autor_id
+AND ed.id = l.editora_id
+AND es.id = l.estilo_id;
 
