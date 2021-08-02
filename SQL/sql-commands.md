@@ -34,9 +34,17 @@ telefone text
 
 );
 
-## ALTERAÇÃO DAS TABELAS
+
+## ALTERAR NOME DB
 
 alter table esitora rename to editora;
+
+
+## ADICIONAR NOVA COLUNA NO DB
+
+alter table NOME_DB add NOME_COLUNA TIPO_DADOS
+
+alter table livros add valor decimal
 
 
 ## INSERIR DADOS
@@ -131,6 +139,11 @@ set autor_id=2
 where id=1;
 
 select * from livro;
+
+
+update livro
+set valor=16.50
+where id=4;
 
 
 ## JOIN
