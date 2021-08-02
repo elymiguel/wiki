@@ -1,4 +1,4 @@
-## CRIACAO DAS TABELAS
+### CRIACAO DAS TABELAS
 
 create table livro(
 id int,
@@ -35,19 +35,19 @@ telefone text
 );
 
 
-## ALTERAR NOME DB
+### ALTERAR NOME DB
 
 alter table esitora rename to editora;
 
 
-## ADICIONAR NOVA COLUNA NO DB
+### ADICIONAR NOVA COLUNA NO DB
 
 alter table NOME_DB add NOME_COLUNA TIPO_DADOS
 
 alter table livros add valor decimal
 
 
-## INSERIR DADOS
+### INSERIR DADOS
 
 insert into editora (id, nome, cidade, estado, telefone, email)
 values (1,"SONY","Sao Paulo", "SP", "222 333 444", "sony@sony.com");
@@ -87,7 +87,7 @@ values(4, "Estude e Apranda", 1, 1, 4, "Keep Going", "55643121232");
 
 
 
-## VISUALIZAR
+### VISUALIZAR
 
 select nome
 from estilo
@@ -109,20 +109,20 @@ select *
 from livro
 where id=2;
 
-## DELETAR
+### DELETAR
 
 delete 
 from editora
 where id=4;
 
-## UPDATE -- Sempre utilizar WHERE! Caso contrário atualiza todos os registros.
+### UPDATE -- Sempre utilizar WHERE! Caso contrário atualiza todos os registros.
 
 update autor
 set telefone="999 999 999";
 
-## ^ NAO UTILIZAR CODIGO ACIMA! CUIDADO ! ^
+### ^ NAO UTILIZAR CODIGO ACIMA! CUIDADO ! ^
 
-## UPDATE
+### UPDATE
 update autor
 set telefone="755 123 456"
 where id=1;
@@ -146,13 +146,13 @@ set valor=16.50
 where id=4;
 
 
-## JOIN
+### JOIN
 
 select livro.titulo, autor.nome
 from livro, autor
 where autor.id = livro.autor_id;
 
-## JOIN Using APELIDO DAS TABELAS --- Livro = l & Autor = a
+### JOIN Using APELIDO DAS TABELAS --- Livro = l & Autor = a
 
 select l.titulo, a.nome 
 from livro l, autor a
@@ -166,7 +166,7 @@ select l.titulo, a.nome, e.nome
 from livro l, autor a, editora e
 where a.id = l.autor_id AND e.id = l.editora_id;
 
-## COM RESTRIÇÕES
+### COM RESTRIÇÕES
 
 select l.titulo, a.nome, e.nome, a.telefone
 from livro l, autor a, editora e
@@ -184,4 +184,43 @@ from livro l, autor a, editora ed, estilo es
 where a.id = l.autor_id
 AND ed.id = l.editora_id
 AND es.id = l.estilo_id;
+
+
+
+
+### COUNT 
+
+select count (*) from autor;
+
+select count (*) as "Total"
+from editora
+where estado="CA";
+
+
+### AVERAGE Media Aritimética
+
+select avg(valorlivro) as "MediaValor"
+ from livro;
+
+### MAX 
+select max(valor)
+from livro;
+
+select min(valor)
+from livro;
+
+select max(id)
+from editora;
+
+
+### GROUP BY / HAVING
+
+select estado, count(*)
+from editora
+group by estado;
+
+select estado, count(*)
+from editora
+group by estado
+having count(*) >1;
 
